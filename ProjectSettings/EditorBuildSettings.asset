@@ -1,0 +1,44 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5228197fe86224d4b9c4af8627171920
+  - enabled: 1
+    path: Assets/Scenes/Town.unity
+    guid: 9916d8a31ed8ec643a7c5d7e2f2777dc
+  - enabled: 1
+    path: Assets/Scenes/Treasury.unity
+    guid: 19d874e9e13a01c4d8303204c82e701d
+  - enabled: 1
+    path: Assets/Scenes/Barracks.unity
+    guid: 51367cd115047454a9cc5a208bf821d8
+  - enabled: 1
+    path: Assets/Scenes/BarrackUpgrades.unity
+    guid: 64fb920a51c59e648abd15f2e26b262d
+  - enabled: 1
+    path: Assets/Scenes/Bank.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/BankUpgrades.unity
+    guid: fb9c4744c107e79418ad7a3e85b159e5
+  - enabled: 1
+    path: Assets/Scenes/Mine.unity
+    guid: 14e96ad757c802b4680a8aaa45ea78cc
+  - enabled: 1
+    path: Assets/Scenes/MainMining.unity
+    guid: f4e8a109d44e904428e3da3471a7ae4d
+  - enabled: 1
+    path: Assets/Scenes/MineUpgrades.unity
+    guid: f2a41f45d0833e148a2b7d22da143f4c
+  - enabled: 1
+    path: Assets/Scenes/Map.unity
+    guid: 0ef3bf1104c58864ca631ca2d9a27644
+  - enabled: 1
+    path: Assets/Scenes/ChooseDungeon.unity
+    guid: 2df0af63b3dadb945bfaa89b9e454fd2
+  m_configObjects: {}
