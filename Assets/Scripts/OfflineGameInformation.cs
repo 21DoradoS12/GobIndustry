@@ -15,14 +15,17 @@ public class OfflineGameInformation : MonoBehaviour
     private CheckTime check;
     public bool ShowTable = false;
     public int Man_s;
+    private EnternetCheck enternet;
     void Start()
     {
+        enternet = GameObject.FindObjectOfType<EnternetCheck>();
         check = GameObject.FindObjectOfType<CheckTime>();
-        OfflineTable.SetActive(true);
+        if (ShowTable == false && enternet.GetInformation == false)
+            OfflineTable.SetActive(true);
     }
     void Update()
     {
-        if (check.Total_Offline_Time.Seconds > 0 && ShowTable == false)
+        if (check.Total_Offline_Time.Seconds > 0 && ShowTable == false && enternet.GetInformation == false)
         {
             Days.text = check.Total_Offline_Time.Days.ToString();
             Hours.text = check.Total_Offline_Time.Hours.ToString();
