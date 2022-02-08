@@ -5,12 +5,9 @@ using UnityEngine;
 public class GetStartResources : MonoBehaviour
 {
     public GameObject GetKitMessage;
-    public GameObject Blocker1;
-    public GameObject Blocker2;
-    public GameObject Blocker3;
-    public GameObject Blocker4;
     public GameObject Image;
     private BankResources bank;
+    public GameObject Blockers;
     void Start()
     {
         GetKitMessage.SetActive(false);
@@ -19,10 +16,12 @@ public class GetStartResources : MonoBehaviour
         {
             Destroy(GetKitMessage);
             Destroy(Image);
-            Destroy(Blocker1);
-            Destroy(Blocker2);
-            Destroy(Blocker3);
-            Destroy(Blocker4);
+            Destroy(Blockers);
+        }
+        if (bank.getResources == false)
+        {
+            Image.SetActive(true);
+            Blockers.SetActive(true);
         }
     }
     void Update()
@@ -34,10 +33,6 @@ public class GetStartResources : MonoBehaviour
     }
     public void GetStartPack()
     {
-        Destroy(Blocker1);
-        Destroy(Blocker2);
-        Destroy(Blocker3);
-        Destroy(Blocker4);
         bank.MoneyToNewScene += 100;
         bank.RockToNewScene += 100;
         bank.SoldiersToNewScene += 10;
@@ -46,6 +41,7 @@ public class GetStartResources : MonoBehaviour
         bank.DelayRockSpawn += 1;
         bank.getResources = true;
         Destroy(Image);
+        Destroy(Blockers);
         GetKitMessage.SetActive(true);
     }
     public void AcceptStartKit()

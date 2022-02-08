@@ -11,6 +11,7 @@ public class SceneLoad : MonoBehaviour
     private BankResources bank;
     private PassiveIncome passive;
     private EnternetCheck enternet;
+    public bool FirstExit;
     void Start()
     {
         enternet = GameObject.FindObjectOfType<EnternetCheck>();
@@ -25,6 +26,7 @@ public class SceneLoad : MonoBehaviour
         {
             save = JsonUtility.FromJson<Save>(File.ReadAllText(path));
         }
+        FirstExit = save.FirstExit;
     }
     void Update()
     {
@@ -84,6 +86,8 @@ public class SceneLoad : MonoBehaviour
         Scene now_scene = SceneManager.GetActiveScene();
         if (now_scene.name != "Bank" && now_scene.name != "MainMining")
         {
+            if(now_scene.name != "MainMenu")
+                save.FirstExit = true;
             save.coin = bank.MoneyToNewScene;
             save.rock = bank.RockToNewScene;
             save.soldiers = bank.SoldiersToNewScene;

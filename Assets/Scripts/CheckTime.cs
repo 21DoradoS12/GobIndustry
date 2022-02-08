@@ -14,6 +14,9 @@ public class CheckTime : MonoBehaviour
     private EnternetCheck enternet;
     public int OfflineEarn;
     public TimeSpan Total_Offline_Time;
+    public int CoinGain;
+    public int RockGain;
+    public int SoldiersGain;
     private void Start()
     {
         enternet = GameObject.FindObjectOfType<EnternetCheck>();
@@ -28,18 +31,25 @@ public class CheckTime : MonoBehaviour
             double Seconds_Offline = Total_Offline_Time.TotalSeconds;
             seconds_for_recources = Convert.ToInt32(Seconds_Offline);
             OfflineEarn = seconds_for_recources * bank.BoostOfflineEarn;
+            Debug.Log(Seconds_Offline);
+            Debug.Log(bank.MaxOfflineTime);
             if (Seconds_Offline <= bank.MaxOfflineTime)
             {
-                bank.MoneyToNewScene += OfflineEarn;
-                bank.RockToNewScene += OfflineEarn;
-                bank.SoldiersToNewScene += OfflineEarn / 100;
+                Debug.Log(1);
+                CoinGain = OfflineEarn;
+                RockGain = OfflineEarn;
+                SoldiersGain = OfflineEarn / 100;
             }
             if (Seconds_Offline > bank.MaxOfflineTime)
             {
-                bank.MoneyToNewScene += OfflineEarn;
-                bank.RockToNewScene += OfflineEarn;
-                bank.SoldiersToNewScene += OfflineEarn / 100;
+                Debug.Log(2);
+                CoinGain = bank.MaxOfflineTime * bank.BoostOfflineEarn;
+                RockGain = bank.MaxOfflineTime * bank.BoostOfflineEarn;
+                SoldiersGain = (bank.MaxOfflineTime * bank.BoostOfflineEarn) / 100;
             }
+            bank.MoneyToNewScene += CoinGain;
+            bank.RockToNewScene += RockGain;
+            bank.SoldiersToNewScene += SoldiersGain;
         }
     }
     DateTime CheckGlobalTime()

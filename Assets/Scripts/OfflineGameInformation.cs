@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using System.IO;
 using UnityEngine.UI;
 public class OfflineGameInformation : MonoBehaviour
 {
@@ -16,12 +18,20 @@ public class OfflineGameInformation : MonoBehaviour
     public bool ShowTable = false;
     public int Man_s;
     private EnternetCheck enternet;
+    private BankResources bank;
+    private SceneLoad scene;
     void Start()
     {
+        scene = GameObject.FindObjectOfType<SceneLoad>();
+        bank = GameObject.FindObjectOfType<BankResources>();
         enternet = GameObject.FindObjectOfType<EnternetCheck>();
         check = GameObject.FindObjectOfType<CheckTime>();
-        if (ShowTable == false && enternet.GetInformation == false)
+        Debug.Log(scene.FirstExit);
+        if (ShowTable == false && enternet.GetInformation == false && bank.getResources == true && scene.FirstExit == true)
+        {
             OfflineTable.SetActive(true);
+            Debug.Log(bank.exitTime);
+        }
     }
     void Update()
     {
@@ -31,9 +41,9 @@ public class OfflineGameInformation : MonoBehaviour
             Hours.text = check.Total_Offline_Time.Hours.ToString();
             Minutes.text = check.Total_Offline_Time.Minutes.ToString();
             Seconds.text = check.Total_Offline_Time.Seconds.ToString();
-            Coins.text = check.OfflineEarn.ToString();
-            Rocks.text = check.OfflineEarn.ToString();
-            Man_s = check.OfflineEarn / 100;
+            Coins.text = check.CoinGain.ToString();
+            Rocks.text = check.RockGain.ToString();
+            Man_s = check.SoldiersGain;
             Mans.text = Man_s.ToString();
             ShowTable = true;
         }

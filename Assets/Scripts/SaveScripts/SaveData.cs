@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
-
+using UnityEngine.SceneManagement;
 public class SaveData : MonoBehaviour
 {
     public Save save = new Save();
@@ -39,6 +39,9 @@ public class SaveData : MonoBehaviour
 #endif
     private void OnApplicationQuit()
     {
+        Scene now_scene = SceneManager.GetActiveScene();
+        if (now_scene.name != "MainMenu")
+            save.FirstExit = true;
         save.coin = bank.MoneyToNewScene;
         save.rock = bank.RockToNewScene;
         save.soldiers = bank.SoldiersToNewScene;
@@ -137,4 +140,5 @@ public class Save
     public bool DungeonOn2;
     public int Chest1Count;
     public int Chest2Count;
+    public bool FirstExit;
 }
