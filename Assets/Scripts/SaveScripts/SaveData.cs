@@ -30,11 +30,16 @@ public class SaveData : MonoBehaviour
         {
             save = JsonUtility.FromJson<Save>(File.ReadAllText(path));
         }
+        if (save.FirstExit == false)
+        {
+            save.exitTime = "0";
+            Debug.Log("suc");
+        }
     }
 #if UNITY_ANDROID && !UNITY_EDITOR
     private void OnApplicationPause(bool pause)
     {
-        if (pause) File.WriteAllText(path, JsonUtility.ToJson(sv));
+        if (pause) File.WriteAllText(path, JsonUtility.ToJson(save));
     }
 #endif
     private void OnApplicationQuit()

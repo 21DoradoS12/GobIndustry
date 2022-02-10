@@ -78,7 +78,7 @@ public class SceneLoad : MonoBehaviour
 #if UNITY_ANDROID && !UNITY_EDITOR
     private void OnApplicationPause(bool pause)
     {
-        if (pause) File.WriteAllText(path, JsonUtility.ToJson(sv));
+        if (pause) File.WriteAllText(path, JsonUtility.ToJson(save));
     }
 #endif
     private void OnApplicationQuit()

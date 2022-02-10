@@ -102,7 +102,7 @@ public class BankResources : MonoBehaviour
             getResources = save.GetStartResources;
             FirstMining = save.FirstMining;
             TaxesTime = save.TaxesTime;
-            if (enternet.InternetOff == false)
+            if (enternet.InternetOff == false && save.FirstExit == true)
                 exitTime = save.exitTime;
             MaxOfflineTime = save.MaxOfflineTime;
             BoostOfflineEarn = save.BoostOfflineEarn;
