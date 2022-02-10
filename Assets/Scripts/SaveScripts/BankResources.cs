@@ -55,6 +55,12 @@ public class BankResources : MonoBehaviour
     public bool DungeonOn2;
     public int Chest1Count;
     public int Chest2Count;
+    public bool level1;
+    public bool level2;
+    public bool level3;
+    public bool level4;
+    public bool level5;
+    public bool level6;
     private EnternetCheck enternet;
     void Start()
     {
@@ -114,6 +120,12 @@ public class BankResources : MonoBehaviour
             AvaliableChest2 = save.AvaliableChest2;
             Chest1Count = save.Chest1Count;
             Chest2Count = save.Chest2Count;
+            level1 = save.level1;
+            level2 = save.level2;
+            level3 = save.level3;
+            level4 = save.level4;
+            level5 = save.level5;
+            level6 = save.level6;
         }
         DontDestroyOnLoad(NeedToSave);
         DontDestroyOnLoad(GobMassanger);

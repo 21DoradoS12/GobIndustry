@@ -93,6 +93,12 @@ public class SaveData : MonoBehaviour
         save.DungeonOn2 = bank.DungeonOn2;
         save.Chest1Count = bank.Chest1Count;
         save.Chest2Count = bank.Chest2Count;
+        save.level1 = bank.level1;
+        save.level2 = bank.level2;
+        save.level3 = bank.level3;
+        save.level4 = bank.level4;
+        save.level5 = bank.level5;
+        save.level6 = bank.level6;
         File.WriteAllText(path, JsonUtility.ToJson(save));
     }
 }
@@ -146,4 +152,10 @@ public class Save
     public int Chest1Count;
     public int Chest2Count;
     public bool FirstExit;
+    public bool level1;
+    public bool level2;
+    public bool level3;
+    public bool level4;
+    public bool level5;
+    public bool level6;
 }

@@ -134,6 +134,12 @@ public class SceneLoad : MonoBehaviour
             save.DungeonOn2 = bank.DungeonOn2;
             save.Chest1Count = bank.Chest1Count;
             save.Chest2Count = bank.Chest2Count;
+            save.level1 = bank.level1;
+            save.level2 = bank.level2;
+            save.level3 = bank.level3;
+            save.level4 = bank.level4;
+            save.level5 = bank.level5;
+            save.level6 = bank.level6;
             File.WriteAllText(path, JsonUtility.ToJson(save));
         }
     }
