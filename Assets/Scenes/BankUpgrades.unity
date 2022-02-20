@@ -899,6 +899,7 @@ GameObject:
   - component: {fileID: 269691744}
   - component: {fileID: 269691743}
   - component: {fileID: 269691745}
+  - component: {fileID: 269691746}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -957,6 +958,25 @@ MonoBehaviour:
     exitTime: 
     MaxOfflineTime: 0
     BoostOfflineEarn: 0
+    Chest1Time: 0
+    AvaliableChest1: 0
+    AvaliableChest2: 0
+    DungeonTimeLeft: 0
+    DungeonOn1: 0
+    DungeonOn2: 0
+    Chest1Count: 0
+    Chest2Count: 0
+    FirstExit: 0
+    level1: 0
+    level2: 0
+    level3: 0
+    level4: 0
+    level5: 0
+    level6: 0
+    TimeForBattle: 0
+    StartGlobalBattleTimer: 0
+    StartGlobalDangeonTImer: 0
+  FirstExit: 0
 --- !u!4 &269691744
 Transform:
   m_ObjectHideFlags: 0
@@ -984,6 +1004,75 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoneyText: {fileID: 1921789854}
+--- !u!114 &269691746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269691742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77049bcb45443864d8a752111da18b37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  save:
+    coin: 0
+    rock: 0
+    soldiers: 0
+    RaiseCoin: 0
+    RaiseCoinPassive: 0
+    RaiseRock: 0
+    RaiseRockPassive: 0
+    RaiseSoldiers: 0
+    RaiseSoldiersPassive: 0
+    SoldiersOdds: 0
+    GetStartResources: 0
+    DelaySpawnRandomRocks: 0
+    MultiplierRandomRockValue: 0
+    Boost1Bank: 0
+    Boost2Bank: 0
+    Boost3Bank: 0
+    Boost4Bank: 0
+    Boost5Bank: 0
+    Boost6Bank: 0
+    Boost7Bank: 0
+    Boost1Mine: 0
+    Boost2Mine: 0
+    Boost3Mine: 0
+    Boost4Mine: 0
+    Boost5Mine: 0
+    Boost6Mine: 0
+    Boost7Mine: 0
+    Boost1Soldiers: 0
+    Boost2Soldiers: 0
+    Boost3Soldiers: 0
+    Boost4Soldiers: 0
+    Boost5Soldiers: 0
+    FirstMining: 0
+    TaxesTime: 0
+    exitTime: 
+    MaxOfflineTime: 0
+    BoostOfflineEarn: 0
+    Chest1Time: 0
+    AvaliableChest1: 0
+    AvaliableChest2: 0
+    DungeonTimeLeft: 0
+    DungeonOn1: 0
+    DungeonOn2: 0
+    Chest1Count: 0
+    Chest2Count: 0
+    FirstExit: 0
+    level1: 0
+    level2: 0
+    level3: 0
+    level4: 0
+    level5: 0
+    level6: 0
+    TimeForBattle: 0
+    StartGlobalBattleTimer: 0
+    StartGlobalDangeonTImer: 0
+  path: 
 --- !u!1 &297331677
 GameObject:
   m_ObjectHideFlags: 0

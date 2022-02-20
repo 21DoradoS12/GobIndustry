@@ -47,6 +47,11 @@ public class OfflineGameInformation : MonoBehaviour
             Mans.text = Man_s.ToString();
             ShowTable = true;
         }
+        if (check.Total_Offline_Time.Seconds <= 0)
+        {
+            OfflineTable.SetActive(false);
+            ShowTable = true;
+        }
     }
     public void CloseOfflineTable()
     {

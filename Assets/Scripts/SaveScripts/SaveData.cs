@@ -16,11 +16,6 @@ public class SaveData : MonoBehaviour
     private EnternetCheck enternet;
     private void Start()
     {
-        enternet = GameObject.FindObjectOfType<EnternetCheck>();
-        passive = GameObject.FindObjectOfType<PassiveIncome>();
-        bank = GameObject.FindObjectOfType<BankResources>();
-        updateCoin = GameObject.FindObjectOfType<UpdateCoin>();
-        updateRock = GameObject.FindObjectOfType<UpdateRock>();
 #if UNITY_ANDROID && !UNITY_EDITOR
         path = Path.Combine(Application.persistentDataPath, "Save.json");
 #else
@@ -35,6 +30,11 @@ public class SaveData : MonoBehaviour
             save.exitTime = "0";
             Debug.Log("suc");
         }
+        enternet = GameObject.FindObjectOfType<EnternetCheck>();
+        passive = GameObject.FindObjectOfType<PassiveIncome>();
+        bank = GameObject.FindObjectOfType<BankResources>();
+        updateCoin = GameObject.FindObjectOfType<UpdateCoin>();
+        updateRock = GameObject.FindObjectOfType<UpdateRock>();
     }
 #if UNITY_ANDROID && !UNITY_EDITOR
     private void OnApplicationPause(bool pause)
@@ -43,6 +43,10 @@ public class SaveData : MonoBehaviour
     }
 #endif
     private void OnApplicationQuit()
+    {
+        File.WriteAllText(path, JsonUtility.ToJson(save));
+    }
+    public void Update()
     {
         Scene now_scene = SceneManager.GetActiveScene();
         if (now_scene.name != "MainMenu")
@@ -99,7 +103,9 @@ public class SaveData : MonoBehaviour
         save.level4 = bank.level4;
         save.level5 = bank.level5;
         save.level6 = bank.level6;
-        File.WriteAllText(path, JsonUtility.ToJson(save));
+        save.TimeForBattle = bank.TimeForBattle;
+        save.StartGlobalBattleTimer = bank.StartGlobalBattleTimer;
+        save.StartGlobalDangeonTImer = bank.StartGlobalDangeonTimer;
     }
 }
 
@@ -158,4 +164,7 @@ public class Save
     public bool level4;
     public bool level5;
     public bool level6;
+    public float TimeForBattle;
+    public bool StartGlobalBattleTimer;
+    public bool StartGlobalDangeonTImer;
 }

@@ -61,6 +61,9 @@ public class BankResources : MonoBehaviour
     public bool level4;
     public bool level5;
     public bool level6;
+    public float TimeForBattle;
+    public bool StartGlobalBattleTimer;
+    public bool StartGlobalDangeonTimer;
     private EnternetCheck enternet;
     void Start()
     {
@@ -126,6 +129,9 @@ public class BankResources : MonoBehaviour
             level4 = save.level4;
             level5 = save.level5;
             level6 = save.level6;
+            TimeForBattle = save.TimeForBattle;
+            StartGlobalBattleTimer = save.StartGlobalBattleTimer;
+            StartGlobalDangeonTimer = save.StartGlobalDangeonTImer;
         }
         DontDestroyOnLoad(NeedToSave);
         DontDestroyOnLoad(GobMassanger);
@@ -134,6 +140,12 @@ public class BankResources : MonoBehaviour
         if (BoostOfflineEarn == 0)
             BoostOfflineEarn = 1;
     }
+#if UNITY_ANDROID && !UNITY_EDITOR
+    private void OnApplicationPause(bool pause)
+    {
+        if (pause) File.WriteAllText(path, JsonUtility.ToJson(save));
+    }
+#endif
     void Update()
     {
         if (getResources == true)
