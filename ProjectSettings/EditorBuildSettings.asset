@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChooseDungeon.unity
     guid: 2df0af63b3dadb945bfaa89b9e454fd2
+  - enabled: 1
+    path: Assets/Scenes/SenatorCheck.unity
+    guid: 448688c5539109247a297358a56883cd
   m_configObjects: {}

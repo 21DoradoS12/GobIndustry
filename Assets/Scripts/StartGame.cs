@@ -19,4 +19,8 @@ public class StartGame : MonoBehaviour
     {
         SceneManager.LoadScene("Town");
     }
+    public void CheckSenator()
+    {
+        SceneManager.LoadScene("SenatorCheck");
+    }
 }
