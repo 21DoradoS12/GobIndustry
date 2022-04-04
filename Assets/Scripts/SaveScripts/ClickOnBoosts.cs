@@ -39,20 +39,20 @@ public class ClickOnBoosts : MonoBehaviour
     }
     public void Boost2()
     {
-        if (bank.MoneyToNewScene >= 200)
+        if (bank.MoneyToNewScene >= 100)
         {
-            bank.MoneyToNewScene -= 200;
-            bank.CoinApp += 5;
+            bank.MoneyToNewScene -= 100;
+            bank.CoinAppPassive += 1;
             b2 = true;
             Destroy(Image2);
         }
     }
     public void Boost3()
     {
-        if (bank.MoneyToNewScene >= 100)
+        if (bank.MoneyToNewScene >= 200)
         {
-            bank.MoneyToNewScene -= 100;
-            bank.CoinAppPassive += 1;
+            bank.MoneyToNewScene -= 200;
+            bank.CoinApp += 5;
             b3 = true;
             Destroy(Image3);
         }

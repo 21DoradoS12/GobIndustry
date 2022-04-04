@@ -140,12 +140,6 @@ public class BankResources : MonoBehaviour
         if (BoostOfflineEarn == 0)
             BoostOfflineEarn = 1;
     }
-#if UNITY_ANDROID && !UNITY_EDITOR
-    private void OnApplicationPause(bool pause)
-    {
-        if (pause) File.WriteAllText(path, JsonUtility.ToJson(save));
-    }
-#endif
     void Update()
     {
         if (getResources == true)

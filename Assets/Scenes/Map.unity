@@ -8802,25 +8802,9 @@ MonoBehaviour:
     GetStartResources: 0
     DelaySpawnRandomRocks: 0
     MultiplierRandomRockValue: 0
-    Boost1Bank: 0
-    Boost2Bank: 0
-    Boost3Bank: 0
-    Boost4Bank: 0
-    Boost5Bank: 0
-    Boost6Bank: 0
-    Boost7Bank: 0
-    Boost1Mine: 0
-    Boost2Mine: 0
-    Boost3Mine: 0
-    Boost4Mine: 0
-    Boost5Mine: 0
-    Boost6Mine: 0
-    Boost7Mine: 0
-    Boost1Soldiers: 0
-    Boost2Soldiers: 0
-    Boost3Soldiers: 0
-    Boost4Soldiers: 0
-    Boost5Soldiers: 0
+    BoostBank: 0
+    BoostMine: 0
+    BoostSoldiers: 0
     FirstMining: 0
     TaxesTime: 0
     exitTime: 
@@ -8835,12 +8819,7 @@ MonoBehaviour:
     Chest1Count: 0
     Chest2Count: 0
     FirstExit: 0
-    level1: 0
-    level2: 0
-    level3: 0
-    level4: 0
-    level5: 0
-    level6: 0
+    levels: 0
     TimeForBattle: 0
     StartGlobalBattleTimer: 0
     StartGlobalDangeonTImer: 0
@@ -8953,25 +8932,9 @@ MonoBehaviour:
     GetStartResources: 0
     DelaySpawnRandomRocks: 0
     MultiplierRandomRockValue: 0
-    Boost1Bank: 0
-    Boost2Bank: 0
-    Boost3Bank: 0
-    Boost4Bank: 0
-    Boost5Bank: 0
-    Boost6Bank: 0
-    Boost7Bank: 0
-    Boost1Mine: 0
-    Boost2Mine: 0
-    Boost3Mine: 0
-    Boost4Mine: 0
-    Boost5Mine: 0
-    Boost6Mine: 0
-    Boost7Mine: 0
-    Boost1Soldiers: 0
-    Boost2Soldiers: 0
-    Boost3Soldiers: 0
-    Boost4Soldiers: 0
-    Boost5Soldiers: 0
+    BoostBank: 0
+    BoostMine: 0
+    BoostSoldiers: 0
     FirstMining: 0
     TaxesTime: 0
     exitTime: 
@@ -8986,12 +8949,7 @@ MonoBehaviour:
     Chest1Count: 0
     Chest2Count: 0
     FirstExit: 0
-    level1: 0
-    level2: 0
-    level3: 0
-    level4: 0
-    level5: 0
-    level6: 0
+    levels: 0
     TimeForBattle: 0
     StartGlobalBattleTimer: 0
     StartGlobalDangeonTImer: 0

@@ -934,13 +934,7 @@ MonoBehaviour:
     GetStartResources: 0
     DelaySpawnRandomRocks: 0
     MultiplierRandomRockValue: 0
-    Boost1Bank: 0
-    Boost2Bank: 0
-    Boost3Bank: 0
-    Boost4Bank: 0
-    Boost5Bank: 0
-    Boost6Bank: 0
-    Boost7Bank: 0
+    BoostBank: 0
     Boost1Mine: 0
     Boost2Mine: 0
     Boost3Mine: 0
@@ -1030,13 +1024,7 @@ MonoBehaviour:
     GetStartResources: 0
     DelaySpawnRandomRocks: 0
     MultiplierRandomRockValue: 0
-    Boost1Bank: 0
-    Boost2Bank: 0
-    Boost3Bank: 0
-    Boost4Bank: 0
-    Boost5Bank: 0
-    Boost6Bank: 0
-    Boost7Bank: 0
+    BoostBank: 0
     Boost1Mine: 0
     Boost2Mine: 0
     Boost3Mine: 0
@@ -2180,7 +2168,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2053000993}
         m_TargetAssemblyTypeName: ClickOnBoosts, Assembly-CSharp
-        m_MethodName: Boost3
+        m_MethodName: Boost2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3050,7 +3038,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2053000993}
         m_TargetAssemblyTypeName: ClickOnBoosts, Assembly-CSharp
-        m_MethodName: Boost2
+        m_MethodName: Boost3
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5706,19 +5694,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Image1: {fileID: 1862583870}
-  Image2: {fileID: 1047441069}
-  Image3: {fileID: 713181731}
+  Image2: {fileID: 713181731}
+  Image3: {fileID: 1047441069}
   Image4: {fileID: 740287896}
   Image5: {fileID: 653036039}
   Image6: {fileID: 1063670266}
   Image7: {fileID: 2082930193}
-  b1: 0
-  b2: 0
-  b3: 0
-  b4: 0
-  b5: 0
-  b6: 0
-  b7: 0
 --- !u!4 &2053000994
 Transform:
   m_ObjectHideFlags: 0

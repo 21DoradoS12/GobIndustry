@@ -39,16 +39,9 @@ public class SaveData : MonoBehaviour
 #if UNITY_ANDROID && !UNITY_EDITOR
     private void OnApplicationPause(bool pause)
     {
-        if (pause) File.WriteAllText(path, JsonUtility.ToJson(save));
-    }
-#endif
-    private void OnApplicationQuit()
-    {
-        File.WriteAllText(path, JsonUtility.ToJson(save));
-    }
-    public void Update()
-    {
-        Scene now_scene = SceneManager.GetActiveScene();
+        if (pause)
+        {
+             Scene now_scene = SceneManager.GetActiveScene();
         if (now_scene.name != "MainMenu")
             save.FirstExit = true;
         save.coin = bank.MoneyToNewScene;
@@ -106,6 +99,74 @@ public class SaveData : MonoBehaviour
         save.TimeForBattle = bank.TimeForBattle;
         save.StartGlobalBattleTimer = bank.StartGlobalBattleTimer;
         save.StartGlobalDangeonTImer = bank.StartGlobalDangeonTimer;
+            File.WriteAllText(path, JsonUtility.ToJson(save));
+        }
+    }
+#endif
+    private void OnApplicationQuit()
+    {
+         Scene now_scene = SceneManager.GetActiveScene();
+        if (now_scene.name != "MainMenu")
+            save.FirstExit = true;
+        save.coin = bank.MoneyToNewScene;
+        save.rock = bank.RockToNewScene;
+        save.soldiers = bank.SoldiersToNewScene;
+        save.RaiseCoin = bank.CoinApp;
+        save.RaiseCoinPassive = bank.CoinAppPassive;
+        save.RaiseRock = bank.RockApp;
+        save.RaiseRockPassive = bank.RockAppPassive;
+        save.RaiseSoldiers = bank.SoldiersApp;
+        save.RaiseSoldiersPassive = bank.SoldiersAppPassive;
+        save.SoldiersOdds = bank.SoldiersAppOdds;
+        save.DelaySpawnRandomRocks = bank.DelayRockSpawn;
+        save.MultiplierRandomRockValue = bank.MultiplierValueRandomRocks;
+        save.Boost1Bank = bank.boost1b;
+        save.Boost2Bank = bank.boost2b;
+        save.Boost3Bank = bank.boost3b;
+        save.Boost4Bank = bank.boost4b;
+        save.Boost5Bank = bank.boost5b;
+        save.Boost6Bank = bank.boost6b;
+        save.Boost7Bank = bank.boost7b;
+        save.Boost1Mine = bank.boost1m;
+        save.Boost2Mine = bank.boost2m;
+        save.Boost3Mine = bank.boost3m;
+        save.Boost4Mine = bank.boost4m;
+        save.Boost5Mine = bank.boost5m;
+        save.Boost6Mine = bank.boost6m;
+        save.Boost7Mine = bank.boost7m;
+        save.Boost1Soldiers = bank.boost1s;
+        save.Boost2Soldiers = bank.boost2s;
+        save.Boost3Soldiers = bank.boost3s;
+        save.Boost4Soldiers = bank.boost4s;
+        save.Boost5Soldiers = bank.boost5s;
+        save.GetStartResources = bank.getResources;
+        save.FirstMining = bank.FirstMining;
+        save.TaxesTime = bank.TaxesTime;
+        if (enternet.InternetOff == false)
+            save.exitTime = bank.exitTime;
+        save.MaxOfflineTime = bank.MaxOfflineTime;
+        save.BoostOfflineEarn = bank.BoostOfflineEarn;
+        save.Chest1Time = bank.Chest1Time;
+        save.AvaliableChest1 = bank.AvaliableChest1;
+        save.AvaliableChest2 = bank.AvaliableChest2;
+        save.DungeonTimeLeft = bank.DungeonTimeLeft;
+        save.DungeonOn1 = bank.DungeonOn1;
+        save.DungeonOn2 = bank.DungeonOn2;
+        save.Chest1Count = bank.Chest1Count;
+        save.Chest2Count = bank.Chest2Count;
+        save.level1 = bank.level1;
+        save.level2 = bank.level2;
+        save.level3 = bank.level3;
+        save.level4 = bank.level4;
+        save.level5 = bank.level5;
+        save.level6 = bank.level6;
+        save.TimeForBattle = bank.TimeForBattle;
+        save.StartGlobalBattleTimer = bank.StartGlobalBattleTimer;
+        save.StartGlobalDangeonTImer = bank.StartGlobalDangeonTimer;
+        File.WriteAllText(path, JsonUtility.ToJson(save));
+    }
+    public void Update()
+    {
     }
 }
 

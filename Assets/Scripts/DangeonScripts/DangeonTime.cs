@@ -21,7 +21,9 @@ public class DangeonTime : MonoBehaviour
             int time_left = check.seconds_for_recources;
             if (check.havedistorbDungeon == false)
             {
+                Debug.Log(DungeonTime);
                 DungeonTime -= time_left;
+                Debug.Log(DungeonTime);
                 check.havedistorbDungeon = true;
             }
             first_gain = true;
