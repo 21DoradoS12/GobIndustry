@@ -17,12 +17,12 @@ public class ChestTime : MonoBehaviour
         checkTime = GameObject.FindObjectOfType<CheckTime>();
         bank = GameObject.FindObjectOfType<BankResources>();
     }
-    void Update()
+    void FixedUpdate()
     {
         if (first_income == false)
         {
             Chest1NewTime = bank.Chest1Time;
-            int recources_time = checkTime.seconds_for_recources;
+            long recources_time = checkTime.seconds_for_recources;
             if (checkTime.havedistorbChest == false)
             {
                 Chest1NewTime -= recources_time;
@@ -33,7 +33,7 @@ public class ChestTime : MonoBehaviour
         if(bank.Chest1Time != 0 && bank.Chest1Time > 0)
         {
             Chest1NewTime = Chest1NewTime - Time.deltaTime;
-            bank.Chest1Time = (int)Chest1NewTime;
+            bank.Chest1Time = (long)Chest1NewTime;
         }
     }
 }

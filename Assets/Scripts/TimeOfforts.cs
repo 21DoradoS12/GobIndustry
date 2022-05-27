@@ -10,7 +10,7 @@ public class TimeOfforts : MonoBehaviour
     {
         bank = GameObject.FindObjectOfType<BankResources>();
     }
-    void Update()
+    void FixedUpdate()
     {
         DateTime exitDate = DateTime.Now;
         exitDate = exitDate.ToUniversalTime();

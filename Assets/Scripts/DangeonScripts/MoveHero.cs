@@ -29,7 +29,7 @@ public class MoveHero : MonoBehaviour
         if (dungeon.DungeonTime > 0)
             Spawn_Enemy();
     }
-    void Update()
+    void FixedUpdate()
     {
         transform.position = transform.position + new Vector3(HeroSpeed, 0, 0);
     }

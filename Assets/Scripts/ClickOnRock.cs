@@ -11,7 +11,7 @@ public class ClickOnRock : MonoBehaviour
         updateRock = GameObject.FindObjectOfType<UpdateRock>();
         bank = GameObject.FindObjectOfType<BankResources>();
     }
-    void Update()
+    void FixedUpdate()
     {
         
     }

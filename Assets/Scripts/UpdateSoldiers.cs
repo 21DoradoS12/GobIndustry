@@ -10,7 +10,7 @@ public class UpdateSoldiers : MonoBehaviour
     {
         bank = GameObject.FindObjectOfType<BankResources>();
     }
-    void Update()
+    void FixedUpdate()
     {
         SoldiersText.text = bank.SoldiersToNewScene.ToString();
     }

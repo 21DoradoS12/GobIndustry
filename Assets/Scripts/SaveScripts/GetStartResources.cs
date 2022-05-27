@@ -24,7 +24,7 @@ public class GetStartResources : MonoBehaviour
             Blockers.SetActive(true);
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         if (bank.TaxesTime >= 20 && GetKitMessage != null)
         {

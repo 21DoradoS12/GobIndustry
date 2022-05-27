@@ -18,7 +18,7 @@ public class CheckAvaliableBoostsBank : MonoBehaviour
         bank = GameObject.FindObjectOfType<BankResources>();
         passive = GameObject.FindObjectOfType<PassiveIncome>();
     }
-    void Update()
+    void FixedUpdate()
     {
         Scene now_scene = SceneManager.GetActiveScene();
         clickOnBoosts = GameObject.FindObjectOfType<ClickOnBoosts>();
@@ -34,9 +34,17 @@ public class CheckAvaliableBoostsBank : MonoBehaviour
             {
                 bank.boost2b = true;
             }
+            if (clickOnBoosts.b3 == true)
+            {
+                bank.boost3b = true;
+            }
             if (clickOnBoosts.b4 == true)
             {
                 bank.boost4b = true;
+            }
+            if (clickOnBoosts.b5 == true)
+            {
+                bank.boost5b = true;
             }
             if (clickOnBoosts.b6 == true)
             {
@@ -57,11 +65,19 @@ public class CheckAvaliableBoostsBank : MonoBehaviour
             {
                 bank.boost2m = true;
             }
-            if(clickOnBoostsMine.m4 == true)
+            if (clickOnBoostsMine.m3 == true)
+            {
+                bank.boost3m = true;
+            }
+            if (clickOnBoostsMine.m4 == true)
             {
                 bank.boost4m = true;
             }
-            if(clickOnBoostsMine.m6 == true)
+            if (clickOnBoostsMine.m5 == true)
+            {
+                bank.boost5m = true;
+            }
+            if (clickOnBoostsMine.m6 == true)
             {
                 bank.boost6m = true;
             }
@@ -87,6 +103,10 @@ public class CheckAvaliableBoostsBank : MonoBehaviour
             if (clickOnBoostsBarracks.s4 == true)
             {
                 bank.boost4s = true;
+            }
+            if (clickOnBoostsBarracks.s5 == true)
+            {
+                bank.boost5s = true;
             }
         }
     }

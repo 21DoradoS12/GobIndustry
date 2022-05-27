@@ -13,7 +13,7 @@ public class UpdateCoin : MonoBehaviour
     {
         bank = GameObject.FindObjectOfType<BankResources>();
     }
-    void Update()
+    void FixedUpdate()
     {
         MoneyText.text = bank.MoneyToNewScene.ToString();
     }

@@ -1,17 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ClickOnBoostsMine : MonoBehaviour
 {
 
-    public GameObject Image1;
-    public GameObject Image2;
-    public GameObject Image3;
-    public GameObject Image4;
-    public GameObject Image5;
-    public GameObject Image6;
-    public GameObject Image7;
+    public GameObject Boost1Sold;
+    public GameObject Boost2Sold;
+    public GameObject Boost3Sold;
+    public GameObject Boost4Sold;
+    public GameObject Boost5Sold;
+    public GameObject Boost6Sold;
+    public GameObject Boost7Sold;
+    public Text Boost1Text;
+    public Text Boost2Text;
+    public Text Boost3Text;
+    public Text Boost4Text;
+    public Text Boost5Text;
+    public Text Boost6Text;
+    public Text Boost7Text;
     public bool m1 = false;
     public bool m2 = false;
     public bool m3 = false;
@@ -23,10 +31,11 @@ public class ClickOnBoostsMine : MonoBehaviour
     void Start()
     {
         bank = GameObject.FindObjectOfType<BankResources>();
+        SoldBoostsFalse();
     }
-    void Update()
+    void FixedUpdate()
     {
-        DeleteBoosts();
+        CorrectBoosts();
     }
     public void Boost1()
     {
@@ -34,8 +43,10 @@ public class ClickOnBoostsMine : MonoBehaviour
         {
             bank.RockToNewScene -= 75;
             bank.RockApp += 1;
+            bank.CountBonusesMine += 1;
             m1 = true;
-            Destroy(Image1);
+            Boost1Sold.SetActive(true);
+            Boost1Text.text = "Sold";
         }
     }
     public void Boost2()
@@ -44,8 +55,10 @@ public class ClickOnBoostsMine : MonoBehaviour
         {
             bank.RockToNewScene -= 150;
             bank.RockApp += 3;
+            bank.CountBonusesMine += 1;
             m2 = true;
-            Destroy(Image2);
+            Boost2Sold.SetActive(true);
+            Boost2Text.text = "Sold";
         }
     }
     public void Boost3()
@@ -54,8 +67,10 @@ public class ClickOnBoostsMine : MonoBehaviour
         {
             bank.RockToNewScene -= 300;
             bank.RockAppPassive += 1;
+            bank.CountBonusesMine += 1;
             m3 = true;
-            Destroy(Image3);
+            Boost3Sold.SetActive(true);
+            Boost3Text.text = "Sold";
         }
     }
     public void Boost4()
@@ -64,8 +79,10 @@ public class ClickOnBoostsMine : MonoBehaviour
         {
             bank.RockToNewScene -= 600;
             bank.RockApp += 5;
+            bank.CountBonusesMine += 1;
             m4 = true;
-            Destroy(Image4);
+            Boost4Sold.SetActive(true);
+            Boost4Text.text = "Sold";
         }
     }
     public void Boost5()
@@ -74,8 +91,10 @@ public class ClickOnBoostsMine : MonoBehaviour
         {
             bank.RockToNewScene -= 1000;
             bank.RockAppPassive += 3;
+            bank.CountBonusesMine += 1;
             m5 = true;
-            Destroy(Image5);
+            Boost5Sold.SetActive(true);
+            Boost5Text.text = "Sold";
         }
     }
     public void Boost6()
@@ -84,8 +103,10 @@ public class ClickOnBoostsMine : MonoBehaviour
         {
             bank.RockToNewScene -= 2000;
             bank.MultiplierValueRandomRocks += 1;
+            bank.CountBonusesMine += 1;
             m6 = true;
-            Destroy(Image6);
+            Boost6Sold.SetActive(true);
+            Boost6Text.text = "Sold";
         }
     }
     public void Boost7()
@@ -94,35 +115,58 @@ public class ClickOnBoostsMine : MonoBehaviour
         {
             bank.RockToNewScene -= 5000;
             bank.DelayRockSpawn += 0.1f;
+            bank.CountBonusesMine += 1;
             m7 = true;
-            Destroy(Image7);
+            Boost7Sold.SetActive(true);
+            Boost7Text.text = "Sold";
         }
     }
-    public void DeleteBoosts()
+    public void CorrectBoosts()
     {
         if(bank.boost1m == true)
         {
-            Destroy(Image1);
+            Boost1Sold.SetActive(true);
+            Boost1Text.text = "Sold";
         }
         if(bank.boost2m == true)
         {
-            Destroy(Image2);
+            Boost2Sold.SetActive(true);
+            Boost2Text.text = "Sold";
         }
         if(bank.boost3m == true)
         {
-            Destroy(Image3);
+            Boost3Sold.SetActive(true);
+            Boost3Text.text = "Sold";
         }
         if(bank.boost4m == true)
         {
-            Destroy(Image4);
+            Boost4Sold.SetActive(true);
+            Boost4Text.text = "Sold";
         }
         if(bank.boost5m == true)
         {
-            Destroy(Image5);
+            Boost5Sold.SetActive(true);
+            Boost5Text.text = "Sold";
         }
         if (bank.boost6m == true)
         {
-            Destroy(Image6);
+            Boost6Sold.SetActive(true);
+            Boost6Text.text = "Sold";
         }
+        if (bank.boost7m == true)
+        {
+            Boost7Sold.SetActive(true);
+            Boost7Text.text = "Sold";
+        }
+    }
+    public void SoldBoostsFalse()
+    {
+        Boost1Sold.SetActive(false);
+        Boost2Sold.SetActive(false);
+        Boost3Sold.SetActive(false);
+        Boost4Sold.SetActive(false);
+        Boost5Sold.SetActive(false);
+        Boost6Sold.SetActive(false);
+        Boost7Sold.SetActive(false);
     }
 }

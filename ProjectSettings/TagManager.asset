@@ -17,6 +17,7 @@ TagManager:
   - 4 Level
   - 5 Level
   - 6 Level
+  - NumberToDelete
   layers:
   - Default
   - TransparentFX

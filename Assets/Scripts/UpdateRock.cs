@@ -12,7 +12,7 @@ public class UpdateRock : MonoBehaviour
     {
         bank = GameObject.FindObjectOfType<BankResources>();
     }
-    void Update()
+    void FixedUpdate()
     {
         RockText.text = bank.RockToNewScene.ToString();
     }

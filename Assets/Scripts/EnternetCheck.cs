@@ -13,7 +13,7 @@ public class EnternetCheck : MonoBehaviour
     {
         
     }
-    void Update()
+    void FixedUpdate()
     {
         Scene now_scene = SceneManager.GetActiveScene();
         if (now_scene.name == "Town")

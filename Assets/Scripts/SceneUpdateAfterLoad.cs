@@ -9,7 +9,7 @@ public class SceneUpdateAfterLoad : MonoBehaviour
     {
         lol = false;
     }
-    void Update()
+    void FixedUpdate()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
     }

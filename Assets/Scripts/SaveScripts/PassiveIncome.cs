@@ -14,8 +14,8 @@ public class PassiveIncome : MonoBehaviour
     public float timebank;
     public float timerecruit;
     public float timemine;
-    public int passiveIncomePause;
-    public int passiveIncomePauseOriginal;
+    public long passiveIncomePause;
+    public long passiveIncomePauseOriginal;
     private ClickOnBoosts clickOnBoosts;
     private ClickOnBoostsMine clickOnBoostsMine;
     private ClickOnBoostsBarracks clickOnBoostsBarracks;
@@ -41,7 +41,7 @@ public class PassiveIncome : MonoBehaviour
             FirstPause = true;
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         timebank += Time.deltaTime;
         timemine += Time.deltaTime;
@@ -77,35 +77,6 @@ public class PassiveIncome : MonoBehaviour
             passiveIncomePause = (passiveIncomePauseOriginal / 5) * bank.SoldiersAppPassive;
             bank.SoldiersToNewScene += passiveIncomePause;
             GainPause = true;
-        }
-        if (now_scene.name == "BankUpgrades")
-        {
-            if (clickOnBoosts.b3 == true)
-            {
-                bank.boost3b = true;
-            }
-            if (clickOnBoosts.b5 == true)
-            {
-                bank.boost5b = true;
-            }
-        }
-        if (now_scene.name == "MineUpgrades")
-        {
-            if (clickOnBoostsMine.m3 == true)
-            {
-                bank.boost3m = true;
-            }
-            if (clickOnBoostsMine.m5 == true)
-            {
-                bank.boost5m = true;
-            }
-        }
-        if (now_scene.name == "BarrackUpgrades")
-        {
-            if (clickOnBoostsBarracks.s5 == true)
-            {
-                bank.boost5s = true;
-            }
         }
     }
     DateTime CheckGlobalTime()

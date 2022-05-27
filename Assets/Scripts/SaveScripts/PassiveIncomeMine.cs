@@ -12,7 +12,7 @@ public class PassiveIncomeMine : MonoBehaviour
     public DateTime TimeOffPause;
     public TimeSpan Total_Pause_Time;
     public float timemine;
-    public int passiveIncomePause;
+    public long passiveIncomePause;
     private ClickOnBoostsMine clickOnBoostsMine;
     private BankResources bank;
     public bool GainPause;
@@ -21,7 +21,7 @@ public class PassiveIncomeMine : MonoBehaviour
     {
         bank = GameObject.FindObjectOfType<BankResources>();
     }
-    void Update()
+    void FixedUpdate()
     {
         timemine += Time.deltaTime;
         Scene now_scene = SceneManager.GetActiveScene();

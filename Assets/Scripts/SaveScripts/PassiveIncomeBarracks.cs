@@ -12,7 +12,7 @@ public class PassiveIncomeBarracks : MonoBehaviour
     public DateTime TimeOffPause;
     public TimeSpan Total_Pause_Time;
     public float timerecruit;
-    public int passiveIncomePause;
+    public long passiveIncomePause;
     private ClickOnBoostsBarracks clickOnBoostsBarracks;
     private BankResources bank;
     public bool GainPause;
@@ -21,7 +21,7 @@ public class PassiveIncomeBarracks : MonoBehaviour
     {
         bank = GameObject.FindObjectOfType<BankResources>();
     }
-    void Update()
+    void FixedUpdate()
     {
         timerecruit += Time.deltaTime;
         Scene now_scene = SceneManager.GetActiveScene();

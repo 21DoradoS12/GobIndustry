@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.IO;
+using UnityEngine.SceneManagement;
 public class BankResources : MonoBehaviour
 {
     public string path;
@@ -11,17 +12,17 @@ public class BankResources : MonoBehaviour
     public GameObject GobMassanger;
     public bool getResources;
     private bool Sve = true;
-    public int MoneyToNewScene;
-    public int RockToNewScene;
-    public int SoldiersToNewScene;
-    public int CoinApp;
-    public int RockApp;
-    public int SoldiersApp;
-    public int SoldiersAppOdds;
-    public int CoinAppPassive;
-    public int RockAppPassive;
-    public int SoldiersAppPassive;
-    public int MultiplierValueRandomRocks;
+    public long MoneyToNewScene;
+    public long RockToNewScene;
+    public long SoldiersToNewScene;
+    public long CoinApp;
+    public long RockApp;
+    public long SoldiersApp;
+    public long SoldiersAppOdds;
+    public long CoinAppPassive;
+    public long RockAppPassive;
+    public long SoldiersAppPassive;
+    public long MultiplierValueRandomRocks;
     public float DelayRockSpawn;
     public bool boost1b;
     public bool boost2b;
@@ -45,16 +46,16 @@ public class BankResources : MonoBehaviour
     public bool FirstMining;
     public float TaxesTime;
     public string exitTime;
-    public int MaxOfflineTime;
-    public int BoostOfflineEarn;
-    public int Chest1Time;
+    public long MaxOfflineTime;
+    public long BoostOfflineEarn;
+    public long Chest1Time;
     public bool AvaliableChest1;
     public bool AvaliableChest2;
-    public int DungeonTimeLeft;
+    public long DungeonTimeLeft;
     public bool DungeonOn1;
     public bool DungeonOn2;
-    public int Chest1Count;
-    public int Chest2Count;
+    public long Chest1Count;
+    public long Chest2Count;
     public bool level1;
     public bool level2;
     public bool level3;
@@ -64,7 +65,22 @@ public class BankResources : MonoBehaviour
     public float TimeForBattle;
     public bool StartGlobalBattleTimer;
     public bool StartGlobalDangeonTimer;
+    public bool FirstOpenCandidats;
+    public long NumCurrentCandidat;
+    public float CandidatsTime;
+    public long LevelGob1;
+    public long LevelGob2;
+    public long LevelGob3;
+    public long Gob1Fragment;
+    public long Gob2Fragment;
+    public long Gob3Fragment;
+    public long CountBonusesBank;
+    public long CountBonusesMine;
+    public long CountBonusesSoldiers;
+    public long TownLevel;
     private EnternetCheck enternet;
+    public int CountKillCollector;
+    public bool CollectorHere;
     void Start()
     {
 
@@ -132,6 +148,21 @@ public class BankResources : MonoBehaviour
             TimeForBattle = save.TimeForBattle;
             StartGlobalBattleTimer = save.StartGlobalBattleTimer;
             StartGlobalDangeonTimer = save.StartGlobalDangeonTImer;
+            FirstOpenCandidats = save.FirstOpenCandidats;
+            NumCurrentCandidat = save.NumCurrentCandidat;
+            CandidatsTime = save.CandidatsTime;
+            LevelGob1 = save.LevelGob1;
+            LevelGob2 = save.LevelGob2;
+            LevelGob3 = save.LevelGob3;
+            Gob1Fragment = save.Gob1Fragment;
+            Gob2Fragment = save.Gob2Fragment;
+            Gob3Fragment = save.Gob3Fragment;
+            CountBonusesBank = save.CountBonusesBank;
+            CountBonusesMine = save.CountBonusesMine;
+            CountBonusesSoldiers = save.CountBonusesSoldiers;
+            TownLevel = save.TownLevel;
+            CountKillCollector = save.CountKillCollector;
+            CollectorHere = save.CollectorHere;
         }
         DontDestroyOnLoad(NeedToSave);
         DontDestroyOnLoad(GobMassanger);
@@ -140,7 +171,7 @@ public class BankResources : MonoBehaviour
         if (BoostOfflineEarn == 0)
             BoostOfflineEarn = 1;
     }
-    void Update()
+    void FixedUpdate()
     {
         if (getResources == true)
             TaxesTime += Time.deltaTime;

@@ -8,7 +8,7 @@ public class KillZone : MonoBehaviour
     {
         
     }
-    void Update()
+    void FixedUpdate()
     {
         
     }

@@ -13,15 +13,16 @@ public class DangeonTime : MonoBehaviour
         check = GameObject.FindObjectOfType<CheckTime>();
         bank = GameObject.FindObjectOfType<BankResources>();
     }
-    void Update()
+    void FixedUpdate()
     {
         if (first_gain == false)
         {
             DungeonTime = bank.DungeonTimeLeft;
-            int time_left = check.seconds_for_recources;
+            Debug.Log(DungeonTime);
+            long time_left = check.seconds_for_recources;
             if (check.havedistorbDungeon == false)
             {
-                Debug.Log(DungeonTime);
+                Debug.Log(time_left);
                 DungeonTime -= time_left;
                 Debug.Log(DungeonTime);
                 check.havedistorbDungeon = true;
@@ -31,7 +32,7 @@ public class DangeonTime : MonoBehaviour
         if (DungeonTime != 0 && DungeonTime > 0)
         {
             DungeonTime -= Time.deltaTime;
-            bank.DungeonTimeLeft = (int)DungeonTime;
+            bank.DungeonTimeLeft = (long)DungeonTime;
         }
     }
 }

@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RandomRockInput : MonoBehaviour
 {
-    private int redvalue = 5;
-    private int bluevalue = 10;
-    private int greenvalue = 20;
-    private int yellowvalue = 40;
-    private int pinkvalue = 75;
+    private long redvalue = 5;
+    private long bluevalue = 10;
+    private long greenvalue = 20;
+    private long yellowvalue = 40;
+    private long pinkvalue = 75;
     private UpdateRock updateRock;
     private RandomRockSpawn random;
     private float redtime = 0;
@@ -34,7 +34,7 @@ public class RandomRockInput : MonoBehaviour
         yellowvalue = yellowvalue * bank.MultiplierValueRandomRocks;
         pinkvalue = pinkvalue * bank.MultiplierValueRandomRocks;
     }
-    void Update()
+    void FixedUpdate()
     {
     }
     void OnMouseDown()

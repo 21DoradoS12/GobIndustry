@@ -1,14 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class ClickOnBoostsBarracks : MonoBehaviour
 {
-    public GameObject Image1;
-    public GameObject Image2;
-    public GameObject Image3;
-    public GameObject Image4;
-    public GameObject Image5;
+    public GameObject Boost1Sold;
+    public GameObject Boost2Sold;
+    public GameObject Boost3Sold;
+    public GameObject Boost4Sold;
+    public GameObject Boost5Sold;
+    public Text Boost1Text;
+    public Text Boost2Text;
+    public Text Boost3Text;
+    public Text Boost4Text;
+    public Text Boost5Text;
     public bool s1 = false;
     public bool s2 = false;
     public bool s3 = false;
@@ -18,10 +23,11 @@ public class ClickOnBoostsBarracks : MonoBehaviour
     void Start()
     {
         bank = GameObject.FindObjectOfType<BankResources>();
+        SoldBoostsFalse();
     }
-    void Update()
+    void FixedUpdate()
     {
-        DestroyBoosts();
+        CorrectBoosts();
     }
     public void Boost1()
     {
@@ -30,8 +36,10 @@ public class ClickOnBoostsBarracks : MonoBehaviour
             bank.MoneyToNewScene -= 50;
             bank.RockToNewScene -= 50;
             bank.SoldiersApp += 1;
+            bank.CountBonusesSoldiers += 1;
             s1 = true;
-            Destroy(Image1);
+            Boost1Sold.SetActive(true);
+            Boost1Text.text = "Sold";
         }
     }
     public void Boost2()
@@ -41,8 +49,10 @@ public class ClickOnBoostsBarracks : MonoBehaviour
             bank.MoneyToNewScene -= 100;
             bank.RockToNewScene -= 100;
             bank.SoldiersApp += 2;
+            bank.CountBonusesSoldiers += 1;
             s2 = true;
-            Destroy(Image2);
+            Boost2Sold.SetActive(true);
+            Boost2Text.text = "Sold";
         }
     }
     public void Boost3()
@@ -52,8 +62,10 @@ public class ClickOnBoostsBarracks : MonoBehaviour
             bank.MoneyToNewScene -= 200;
             bank.RockToNewScene -= 200;
             bank.SoldiersAppOdds -= 10;
+            bank.CountBonusesSoldiers += 1;
             s3 = true;
-            Destroy(Image3);
+            Boost3Sold.SetActive(true);
+            Boost3Text.text = "Sold";
         }
     }
     public void Boost4()
@@ -63,8 +75,10 @@ public class ClickOnBoostsBarracks : MonoBehaviour
             bank.MoneyToNewScene -= 300;
             bank.RockToNewScene -= 300;
             bank.SoldiersApp += 5;
+            bank.CountBonusesSoldiers += 1;
             s4 = true;
-            Destroy(Image4);
+            Boost4Sold.SetActive(true);
+            Boost4Text.text = "Sold";
         }
     }
     public void Boost5()
@@ -74,31 +88,46 @@ public class ClickOnBoostsBarracks : MonoBehaviour
             bank.MoneyToNewScene -= 500;
             bank.RockToNewScene -= 500;
             bank.SoldiersAppPassive += 1;
+            bank.CountBonusesSoldiers += 1;
             s5 = true;
-            Destroy(Image5);
+            Boost5Sold.SetActive(true);
+            Boost5Text.text = "Sold";
         }
     }
-    public void DestroyBoosts()
+    public void CorrectBoosts()
     {
         if (bank.boost1s == true)
         {
-            Destroy(Image1);
+            Boost1Sold.SetActive(true);
+            Boost1Text.text = "Sold";
         }
         if (bank.boost2s == true)
         {
-            Destroy(Image2);
+            Boost2Sold.SetActive(true);
+            Boost2Text.text = "Sold";
         }
         if (bank.boost3s == true)
         {
-            Destroy(Image3);
+            Boost3Sold.SetActive(true);
+            Boost3Text.text = "Sold";
         }
         if (bank.boost4s == true)
         {
-            Destroy(Image4);
+            Boost4Sold.SetActive(true);
+            Boost4Text.text = "Sold";
         }
         if (bank.boost5s == true)
         {
-            Destroy(Image5);
+            Boost5Sold.SetActive(true);
+            Boost5Text.text = "Sold";
         }
+    }
+    public void SoldBoostsFalse()
+    {
+        Boost1Sold.SetActive(false);
+        Boost2Sold.SetActive(false);
+        Boost3Sold.SetActive(false);
+        Boost4Sold.SetActive(false);
+        Boost5Sold.SetActive(false);
     }
 }

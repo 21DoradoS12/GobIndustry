@@ -16,10 +16,12 @@ public class OfflineGameInformation : MonoBehaviour
     public Text Mans;
     private CheckTime check;
     public bool ShowTable = false;
-    public int Man_s;
+    public long Man_s;
     private EnternetCheck enternet;
     private BankResources bank;
     private SceneLoad scene;
+    private RewardedAdsButton reward;
+    public bool ShowNewRec;
     void Start()
     {
         scene = GameObject.FindObjectOfType<SceneLoad>();
@@ -33,19 +35,29 @@ public class OfflineGameInformation : MonoBehaviour
             Debug.Log(bank.exitTime);
         }
     }
-    void Update()
+    void FixedUpdate()
     {
+        reward = GameObject.FindObjectOfType<RewardedAdsButton>();
         if (check.Total_Offline_Time.Seconds > 0 && ShowTable == false && enternet.GetInformation == false)
         {
             Days.text = check.Total_Offline_Time.Days.ToString();
             Hours.text = check.Total_Offline_Time.Hours.ToString();
             Minutes.text = check.Total_Offline_Time.Minutes.ToString();
             Seconds.text = check.Total_Offline_Time.Seconds.ToString();
+            ShowTable = true;
+        }
+        if (ShowNewRec == true)
+        {
+            Coins.text = reward.Coins.ToString();
+            Rocks.text = reward.Rocks.ToString();
+            Mans.text = reward.Mans.ToString();
+        }
+        if (ShowNewRec == false)
+        {
             Coins.text = check.CoinGain.ToString();
             Rocks.text = check.RockGain.ToString();
             Man_s = check.SoldiersGain;
             Mans.text = Man_s.ToString();
-            ShowTable = true;
         }
         if (check.Total_Offline_Time.Seconds <= 0)
         {

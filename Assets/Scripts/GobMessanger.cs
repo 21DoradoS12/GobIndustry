@@ -8,13 +8,15 @@ public class GobMessanger : MonoBehaviour
     public GameObject MessageAboutExtraTaxes;
     private BankResources bank;
     public bool showGobMessager;
+    private SceneLoad sceneload;
     void Start()
     {
         GobSprite.SetActive(false);
         MessageAboutExtraTaxes.SetActive(false);
         bank = GameObject.FindObjectOfType<BankResources>();
+        sceneload = GameObject.FindObjectOfType<SceneLoad>();
     }
-    void Update()
+    void FixedUpdate()
     {
         if (bank.TaxesTime <= 10)
         {
@@ -56,7 +58,8 @@ public class GobMessanger : MonoBehaviour
         showGobMessager = true;
         GobSprite.SetActive(false);
         MessageAboutExtraTaxes.SetActive(false);
-        SceneManager.LoadScene("Town");
+        sceneload.NumSceneNow = 1;
+        SceneManager.LoadScene("Bank");
     }
     public void IgnoreTaxesGob()
     {

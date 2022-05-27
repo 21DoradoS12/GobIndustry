@@ -10,13 +10,13 @@ public class ClickOnPipe : MonoBehaviour
     {
         bank = GameObject.FindObjectOfType<BankResources>();
     }
-    void Update()
+    void FixedUpdate()
     {
         
     }
     public void RecruitSoldiers()
     {
-        odds = Random.Range(0, bank.SoldiersAppOdds);
+        odds = Random.Range(0, (int)bank.SoldiersAppOdds);
         if (odds == 0)
         {
             bank.SoldiersToNewScene += bank.SoldiersApp;

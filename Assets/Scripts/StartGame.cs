@@ -11,16 +11,12 @@ public class StartGame : MonoBehaviour
     {
         
     }
-    void Update()
+    void FixedUpdate()
     {
         
     }
     public void LoadTown()
     {
         SceneManager.LoadScene("Town");
-    }
-    public void CheckSenator()
-    {
-        SceneManager.LoadScene("SenatorCheck");
     }
 }

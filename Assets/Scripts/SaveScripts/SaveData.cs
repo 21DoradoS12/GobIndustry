@@ -99,13 +99,28 @@ public class SaveData : MonoBehaviour
         save.TimeForBattle = bank.TimeForBattle;
         save.StartGlobalBattleTimer = bank.StartGlobalBattleTimer;
         save.StartGlobalDangeonTImer = bank.StartGlobalDangeonTimer;
-            File.WriteAllText(path, JsonUtility.ToJson(save));
+        save.FirstOpenCandidats = bank.FirstOpenCandidats;
+        save.NumCurrentCandidat = bank.NumCurrentCandidat;
+        save.CandidatsTime = bank.CandidatsTime;
+        save.LevelGob1 = bank.LevelGob1;
+        save.LevelGob2 = bank.LevelGob2;
+        save.LevelGob3 = bank.LevelGob3;
+        save.Gob1Fragment = bank.Gob1Fragment;
+        save.Gob2Fragment = bank.Gob2Fragment;
+        save.Gob3Fragment = bank.Gob3Fragment;
+        save.CountBonusesBank = bank.CountBonusesBank;
+        save.CountBonusesMine = bank.CountBonusesMine;
+        save.CountBonusesSoldiers = bank.CountBonusesSoldiers;
+        save.TownLevel = bank.TownLevel;
+        save.CountKillCollector = bank.CountKillCollector;
+        save.CollectorHere = bank.CollectorHere;
+        File.WriteAllText(path, JsonUtility.ToJson(save));
         }
     }
 #endif
     private void OnApplicationQuit()
     {
-         Scene now_scene = SceneManager.GetActiveScene();
+        Scene now_scene = SceneManager.GetActiveScene();
         if (now_scene.name != "MainMenu")
             save.FirstExit = true;
         save.coin = bank.MoneyToNewScene;
@@ -163,9 +178,24 @@ public class SaveData : MonoBehaviour
         save.TimeForBattle = bank.TimeForBattle;
         save.StartGlobalBattleTimer = bank.StartGlobalBattleTimer;
         save.StartGlobalDangeonTImer = bank.StartGlobalDangeonTimer;
+        save.FirstOpenCandidats = bank.FirstOpenCandidats;
+        save.NumCurrentCandidat = bank.NumCurrentCandidat;
+        save.CandidatsTime = bank.CandidatsTime;
+        save.LevelGob1 = bank.LevelGob1;
+        save.LevelGob2 = bank.LevelGob2;
+        save.LevelGob3 = bank.LevelGob3;
+        save.Gob1Fragment = bank.Gob1Fragment;
+        save.Gob2Fragment = bank.Gob2Fragment;
+        save.Gob3Fragment = bank.Gob3Fragment;
+        save.CountBonusesBank = bank.CountBonusesBank;
+        save.CountBonusesMine = bank.CountBonusesMine;
+        save.CountBonusesSoldiers = bank.CountBonusesSoldiers;
+        save.TownLevel = bank.TownLevel;
+        save.CountKillCollector = bank.CountKillCollector;
+        save.CollectorHere = bank.CollectorHere;
         File.WriteAllText(path, JsonUtility.ToJson(save));
     }
-    public void Update()
+    public void FixedUpdate()
     {
     }
 }
@@ -173,19 +203,19 @@ public class SaveData : MonoBehaviour
 [Serializable]
 public class Save
 {
-    public int coin;
-    public int rock;
-    public int soldiers;
-    public int RaiseCoin;
-    public int RaiseCoinPassive;
-    public int RaiseRock;
-    public int RaiseRockPassive;
-    public int RaiseSoldiers;
-    public int RaiseSoldiersPassive;
-    public int SoldiersOdds;
+    public long coin;
+    public long rock;
+    public long soldiers;
+    public long RaiseCoin;
+    public long RaiseCoinPassive;
+    public long RaiseRock;
+    public long RaiseRockPassive;
+    public long RaiseSoldiers;
+    public long RaiseSoldiersPassive;
+    public long SoldiersOdds;
     public bool GetStartResources;
     public float DelaySpawnRandomRocks;
-    public int MultiplierRandomRockValue;
+    public long MultiplierRandomRockValue;
     public bool Boost1Bank;
     public bool Boost2Bank;
     public bool Boost3Bank;
@@ -208,16 +238,16 @@ public class Save
     public bool FirstMining;
     public float TaxesTime;
     public string exitTime;
-    public int MaxOfflineTime;
-    public int BoostOfflineEarn;
-    public int Chest1Time;
+    public long MaxOfflineTime;
+    public long BoostOfflineEarn;
+    public long Chest1Time;
     public bool AvaliableChest1;
     public bool AvaliableChest2;
-    public int DungeonTimeLeft;
+    public long DungeonTimeLeft;
     public bool DungeonOn1;
     public bool DungeonOn2;
-    public int Chest1Count;
-    public int Chest2Count;
+    public long Chest1Count;
+    public long Chest2Count;
     public bool FirstExit;
     public bool level1;
     public bool level2;
@@ -228,4 +258,19 @@ public class Save
     public float TimeForBattle;
     public bool StartGlobalBattleTimer;
     public bool StartGlobalDangeonTImer;
+    public bool FirstOpenCandidats;
+    public long NumCurrentCandidat;
+    public float CandidatsTime;
+    public long LevelGob1;
+    public long LevelGob2;
+    public long LevelGob3;
+    public long Gob1Fragment;
+    public long Gob2Fragment;
+    public long Gob3Fragment;
+    public long CountBonusesBank;
+    public long CountBonusesMine;
+    public long CountBonusesSoldiers;
+    public long TownLevel;
+    public int CountKillCollector;
+    public bool CollectorHere;
 }

@@ -9,11 +9,11 @@ public class RandomRockSpawn : MonoBehaviour
     public GameObject GreenRockPrefab;
     public GameObject YellowRockPrefab;
     public GameObject PinkRockPrefab;
-    public int red = 0;
-    public int blue = 0;
-    public int green = 0;
-    public int yellow = 0;
-    public int pink = 0;
+    public long red = 0;
+    public long blue = 0;
+    public long green = 0;
+    public long yellow = 0;
+    public long pink = 0;
     public float time1;
     public float redwait = 0;
     public float bluewait = 0;
@@ -84,7 +84,7 @@ public class RandomRockSpawn : MonoBehaviour
             pinkwait = Random.Range(240f / bank.DelayRockSpawn, 360f / bank.DelayRockSpawn);
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         time1 += Time.deltaTime;
         if (time1 > redwait && red == 0 && redOn == false)

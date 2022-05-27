@@ -23,17 +23,25 @@ public class ChooseDungeon : MonoBehaviour
     public Text CoinGet;
     public Text RockGet;
     public Text SoldiersGet;
-    public int CoinApp;
-    public int RockApp;
-    public int SoldiersApp;
+    public long CoinApp;
+    public long RockApp;
+    public long SoldiersApp;
     public GameObject InforamtionTable;
     public GameObject BackGroundDungeon;
-    public int ChanceGetChest1;
-    public int ChanceGetChest2;
+    public long ChanceGetChest1;
+    public long ChanceGetChest2;
     public Text CountGetChest1;
     public Text CountGetChest2;
+    public GameObject NeedLevel1;
+    public GameObject NeedLevel2;
+    public GameObject NeedLevel3;
+    public GameObject NeedLevel4;
     void Start()
     {
+        NeedLevel1.SetActive(true);
+        NeedLevel2.SetActive(true);
+        NeedLevel3.SetActive(true);
+        NeedLevel4.SetActive(true);
         InforamtionTable.SetActive(false);
         bank = GameObject.FindObjectOfType<BankResources>();
         dungeon = GameObject.FindObjectOfType<DangeonTime>();
@@ -57,8 +65,30 @@ public class ChooseDungeon : MonoBehaviour
             ListOfDungeons.SetActive(false);
         }
     }
-    void Update()
+    void FixedUpdate()
     {
+        if (bank.TownLevel == 1)
+        {
+            NeedLevel1.SetActive(false);
+        }
+        if (bank.TownLevel == 2)
+        {
+            NeedLevel1.SetActive(false);
+            NeedLevel2.SetActive(false);
+        }
+        if (bank.TownLevel == 3)
+        {
+            NeedLevel1.SetActive(false);
+            NeedLevel2.SetActive(false);
+            NeedLevel3.SetActive(false);
+        }
+        if (bank.TownLevel == 4)
+        {
+            NeedLevel1.SetActive(false);
+            NeedLevel2.SetActive(false);
+            NeedLevel3.SetActive(false);
+            NeedLevel4.SetActive(false);
+        }
         if (dungeon.DungeonTime <= 0)
         {
             actionHero.SetActive(false);
@@ -83,25 +113,31 @@ public class ChooseDungeon : MonoBehaviour
     }
     public void Dungeon_1()
     {
-        bank.DungeonTimeLeft = 1800;
-        dungeon.DungeonTime = 1800;
-        actionHero.SetActive(true);
-        getReward.SetActive(true);
-        Timer.SetActive(true);
-        BackGroundDungeon.GetComponent<SpriteRenderer>().sprite = Dun_1;
-        ListOfDungeons.SetActive(false);
-        bank.DungeonOn1 = true;
+        if (bank.TownLevel == 1)
+        {
+            bank.DungeonTimeLeft = 1800;
+            dungeon.DungeonTime = 1800;
+            actionHero.SetActive(true);
+            getReward.SetActive(true);
+            Timer.SetActive(true);
+            BackGroundDungeon.GetComponent<SpriteRenderer>().sprite = Dun_1;
+            ListOfDungeons.SetActive(false);
+            bank.DungeonOn1 = true;
+        }
     }
     public void Dungeon_2()
     {
-        bank.DungeonTimeLeft = 3600;
-        dungeon.DungeonTime = 3600;
-        actionHero.SetActive(true);
-        getReward.SetActive(true);
-        Timer.SetActive(true);
-        BackGroundDungeon.GetComponent<SpriteRenderer>().sprite = Dun_2;
-        ListOfDungeons.SetActive(false);
-        bank.DungeonOn2 = true;
+        if (bank.TownLevel == 2)
+        {
+            bank.DungeonTimeLeft = 3600;
+            dungeon.DungeonTime = 3600;
+            actionHero.SetActive(true);
+            getReward.SetActive(true);
+            Timer.SetActive(true);
+            BackGroundDungeon.GetComponent<SpriteRenderer>().sprite = Dun_2;
+            ListOfDungeons.SetActive(false);
+            bank.DungeonOn2 = true;
+        }
     }
     public void GetReward()
     {

@@ -12,9 +12,9 @@ public class Chest : MonoBehaviour
     private ChestTime chestTime;
     public GameObject InformationMessage;
     public GameObject DecreaseTimeChestButton;
-    public int CoinGet;
-    public int RockGet;
-    public int SoldiersGet;
+    public long CoinGet;
+    public long RockGet;
+    public long SoldiersGet;
     public Text CoinText;
     public Text RockText;
     public Text SoldiersText;
@@ -22,6 +22,15 @@ public class Chest : MonoBehaviour
     public Text Count2Chest;
     public GameObject ChooseChestMenu;
     public GameObject ChooseChestButton;
+    public GameObject Gob1Fragment;
+    public GameObject Gob2Fragment;
+    public GameObject Gob3Fragment;
+    public long Gob1Chance;
+    public long Gob2Chance;
+    public long Gob3Chance;
+    public Text Gob1Text;
+    public Text Gob2Text;
+    public Text Gob3Text;
     void Start()
     {
         ChooseChestButton.SetActive(true);
@@ -48,7 +57,7 @@ public class Chest : MonoBehaviour
             DecreaseTimeChestButton.SetActive(true);
         }
     }
-    void Update()
+    void FixedUpdate()
     {
         Count1Chest.text = bank.Chest1Count.ToString();
         Count2Chest.text = bank.Chest2Count.ToString();
@@ -56,6 +65,10 @@ public class Chest : MonoBehaviour
         {
             ChooseChestMenu.SetActive(false);
             ChooseChestButton.SetActive(false);
+        }
+        if (chestTime.Chest1NewTime <= 0 || bank.Chest1Time <= 0)
+        {
+            DecreaseTimeChestButton.SetActive(false);
         }
     }
     public void GetChest_1()
@@ -87,6 +100,9 @@ public class Chest : MonoBehaviour
             DecreaseTimeChestButton.SetActive(true);
             bank.AvaliableChest2 = true;
             chestTime.first_income = false;
+            Gob1Fragment.SetActive(false);
+            Gob2Fragment.SetActive(false);
+            Gob3Fragment.SetActive(false);
             bank.Chest2Count -= 1;
         }
     }
@@ -104,6 +120,27 @@ public class Chest : MonoBehaviour
                 RockGet = UnityEngine.Random.Range(100, 500);
                 bank.RockToNewScene += RockGet;
                 SoldiersGet = UnityEngine.Random.Range(25, 75);
+                Gob1Chance = UnityEngine.Random.Range(0, 11);
+                if (Gob1Chance == 0)
+                {
+                    bank.Gob1Fragment += 1;
+                    Gob1Text.text = 1.ToString();
+                    Gob1Fragment.SetActive(true);
+                }
+                Gob2Chance = UnityEngine.Random.Range(0, 11);
+                if (Gob2Chance == 0 && Gob1Chance != 0)
+                {
+                    bank.Gob2Fragment += 1;
+                    Gob2Text.text = 1.ToString();
+                    Gob2Fragment.SetActive(true);
+                }
+                Gob3Chance = UnityEngine.Random.Range(0, 11);
+                if (Gob3Chance == 0 && Gob1Chance != 0 && Gob2Chance != 0)
+                {
+                    bank.Gob3Fragment += 1;
+                    Gob2Text.text = 1.ToString();
+                    Gob3Fragment.SetActive(true);
+                }
                 bank.SoldiersToNewScene += SoldiersGet;
             }
             if (bank.AvaliableChest2 == true)
@@ -116,6 +153,27 @@ public class Chest : MonoBehaviour
                 bank.RockToNewScene += RockGet;
                 SoldiersGet = UnityEngine.Random.Range(150, 300);
                 bank.SoldiersToNewScene += SoldiersGet;
+                Gob1Chance = UnityEngine.Random.Range(0, 11);
+                if (Gob1Chance == 0)
+                {
+                    bank.Gob1Fragment += 2;
+                    Gob1Text.text = 2.ToString();
+                    Gob1Fragment.SetActive(true);
+                }
+                Gob2Chance = UnityEngine.Random.Range(0, 11);
+                if (Gob2Chance == 0 && Gob1Chance != 0)
+                {
+                    bank.Gob2Fragment += 2;
+                    Gob2Text.text = 2.ToString();
+                    Gob2Fragment.SetActive(true);
+                }
+                Gob3Chance = UnityEngine.Random.Range(0, 11);
+                if (Gob3Chance == 0 && Gob1Chance != 0 && Gob2Chance != 0)
+                {
+                    bank.Gob3Fragment += 2;
+                    Gob3Text.text = 2.ToString();
+                    Gob3Fragment.SetActive(true);
+                }
             }
             DecreaseTimeChestButton.SetActive(false);
             CoinText.text = CoinGet.ToString();

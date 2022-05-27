@@ -73,7 +73,7 @@
       "dependencies": {}
     },
     "com.unity.ads": {
-      "version": "3.7.5",
+      "version": "4.1.0",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -83,6 +83,13 @@
     },
     "com.unity.collab-proxy": {
       "version": "1.9.0",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.device-simulator": {
+      "version": "3.0.3-preview",
       "depth": 0,
       "source": "registry",
       "dependencies": {},
